@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/menu_sun_position"
+        android:orderInCategory="80"
+        android:visible="true"
+        android:icon="@drawable/ic_sunny_24px"
+        app:showAsAction="always"
+        android:title="@string/action_sun_position" />
+    <item
+        android:id="@+id/menu_refresh"
+        android:orderInCategory="90"
+        android:title="@string/action_refresh"
+        android:icon="@drawable/ic_refresh_24px"
+        app:actionViewClass="android.widget.ImageButton"
+        app:showAsAction="always"
+        style="@android:style/Widget.ActionButton" />
+</menu>

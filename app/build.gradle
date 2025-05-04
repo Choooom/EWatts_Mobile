@@ -1,0 +1,55 @@
+apply plugin: 'com.android.application'
+
+android {
+
+    lintOptions {
+        disable 'MissingTranslation'
+    }
+
+    dependenciesInfo {
+        // Disable including dependency metadata when building APKs
+        includeInApk = false
+        // Disable including dependency metadata when building Android App Bundles
+        includeInBundle = false
+    }
+
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "org.woheller69.solxpect"
+        minSdkVersion 26
+        targetSdk 34
+        versionCode 26
+        versionName "2.6"
+
+        buildConfigField "String", "BASE_URL", "\"https://api.open-meteo.com/v1/\""
+        buildConfigField "String", "TILES_URL","\"https://tile.openstreetmap.org/\""
+        buildConfigField "String", "GEOCODING_URL","\"https://geocoding-api.open-meteo.com/\""
+        buildConfigField "String", "GITHUB_URL","\"https://github.com/woheller69/solxpect/\""
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.diogobernardino:williamchart:2.2'
+    implementation 'net.e175.klaus:solarpositioning:0.1.10'
+    implementation 'androidx.preference:preference:1.2.0'
+    implementation 'androidx.appcompat:appcompat:1.5.1'
+    implementation 'com.google.android.material:material:1.6.1'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'com.android.volley:volley:1.2.1'
+    implementation 'androidx.recyclerview:recyclerview:1.2.1'
+    implementation 'androidx.cardview:cardview:1.0.0'
+    implementation 'net.lingala.zip4j:zip4j:2.9.1'
+    implementation "androidx.lifecycle:lifecycle-viewmodel:2.5.1" //needed due to duplicate class error
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1" //needed due to duplicate class error
+    implementation 'com.github.woheller69:CompassView:948f3db329'
+    implementation 'androidx.webkit:webkit:1.5.0'
+}
